@@ -6,7 +6,7 @@ metadata:
     service: programmer
   namespace: programmer
 spec:
-  replicas: 2
+  replicas: 5
   selector:
     matchLabels:
       service: programmer
