@@ -13,6 +13,13 @@ spec:
  destination:
   server: https://kubernetes.default.svc
   namespace: programmer
+ source:
+  repoURL: https://github.com/kauboy0502/argocd.git
+  targetRevision: HEAD
+  path: dev
+ destination:
+  server: https://kubernetes.default.svc
+  namespace: tester  
  syncPolicy:
   syncOptions:
   - CreateNamespace=true
