@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: programmer-deployment
+  labels:
+    service: programmer
+  namespace: programmer
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      service: programmer
+  template:
+    metadata:
+      name: programmer-pod
+      labels:
+        service: programmer
+      namespace: programmer
+    spec:
+      containers:
+        - image: kaustubh0502/programmer:1.0
+          name: programmer
+          ports:
+            - containerPort: 80
+          imagePullPolicy: Always
