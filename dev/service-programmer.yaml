@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: programmer-service
+  labels:
+    service: programmer
+  namespace: programmer
+spec:
+  ports:
+    - port: 80
+      name: programmer-service-port
+  selector:
+    service: programmer
