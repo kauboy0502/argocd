@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tester-deployment
+  labels:
+    service: tester
+  namespace: tester
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      service: tester
+  template:
+    metadata:
+      name: tester-pod
+      labels:
+        service: tester
+      namespace: tester
+    spec:
+      containers:
+        - image: kaustubh0502/tester:1.0
+          name: tester
+          ports:
+            - containerPort: 80
+          imagePullPolicy: Always
